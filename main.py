@@ -8,6 +8,12 @@ from waitress import serve
 app = Flask(__name__)
 cors = CORS(app)
 
+@app.route("/",methods=['GET'])
+def test():
+    json = {}
+    json["message"]="Server running ..."
+    return jsonify(json)
+
 def loadFileConfig():
     with open('config.json') as f:
         data = json.load(f)
